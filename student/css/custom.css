@@ -198,6 +198,54 @@ p {
   margin-bottom: 1.5rem;
 }
 
+/* 画廊图片样式 */
+.gallery-item {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 123, 255, 0.25);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* 增加底部间距 */
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+/* 响应式画廊 */
+@media (max-width: 991px) {
+  .gallery-grid1 {
+    margin-bottom: 25px;
+  }
+  
+  .gallery-item img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery-item img {
+    height: 200px;
+  }
+}
+
 .nav-logo {
   max-height: 40px;
   width: auto;
