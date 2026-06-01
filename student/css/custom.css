@@ -15,7 +15,7 @@
 .navbar-header {
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 70px;
   float: left;
 }
 
@@ -27,7 +27,7 @@
 
 /* 导航栏标题样式 */
 .probootstrap-heading {
-  font-size: 24px;
+  font-size: 48px;
   font-weight: bold;
   color: inherit;
   text-decoration: none;
