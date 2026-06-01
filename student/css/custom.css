@@ -11,6 +11,15 @@
   padding: 8px 15px;
 }
 
+/* 导航栏标题样式 */
+.probootstrap-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
 .nav-logo {
   max-height: 40px;
   width: auto;
