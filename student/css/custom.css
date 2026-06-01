@@ -1,1 +1,332 @@
-/* Your custom css code goes here */
+/* 全局响应式样式 */
+* {
+  box-sizing: border-box;
+}
+
+/* 图片自适应 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 容器响应式 */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* 小屏幕设备 (手机) */
+@media (max-width: 767px) {
+  /* 导航栏优化 */
+  .navbar {
+    padding: 10px 0;
+  }
+  
+  .navbar-brand {
+    padding: 10px 15px;
+    font-size: 18px;
+  }
+  
+  .navbar-toggle {
+    margin-right: 15px;
+    margin-top: 8px;
+  }
+  
+  .navbar-nav {
+    margin: 0;
+    float: none !important;
+  }
+  
+  .navbar-nav > li {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+  
+  .navbar-nav > li > a {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  
+  /* 移除固定宽度的分割线 */
+  hr {
+    width: 100% !important;
+  }
+  
+  /* 轮播图文字调整 */
+  .probootstrap-slider-text h1 {
+    font-size: 24px;
+  }
+  
+  /* 章节标题 */
+  .section-heading h2 {
+    font-size: 24px;
+  }
+  
+  /* 图片网格布局 - 手机单列 */
+  .gallery-grid {
+    width: 100%;
+    float: none;
+    margin-bottom: 20px;
+  }
+  
+  /* flex布局调整为垂直排列 */
+  .probootstrap-flex-block {
+    flex-direction: column;
+  }
+  
+  .probootstrap-flex-block .probootstrap-text,
+  .probootstrap-flex-block .probootstrap-image {
+    width: 100%;
+  }
+  
+  .probootstrap-image {
+    height: 250px;
+    margin-top: 20px;
+  }
+  
+  /* 服务卡片调整 */
+  .probootstrap-service-2 {
+    margin-bottom: 30px;
+  }
+  
+  .probootstrap-service-2 .image {
+    text-align: center;
+  }
+  
+  /* 瀑布流图片调整 */
+  #waterfall li {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+  
+  /* 学习页面布局 */
+  .study-1 {
+    width: 100%;
+    float: none;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .study-1 ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .study-1 ul li {
+    margin: 5px 10px;
+  }
+  
+  .nav-2 {
+    width: 100%;
+    float: none;
+    padding: 20px;
+  }
+  
+  /* 首页特色区域 */
+  .major-top {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .major-top .one,
+  .major-top .two {
+    width: 100%;
+  }
+  
+  .major-top .one img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* 专业动态页面 */
+  .major-study {
+    padding: 20px;
+  }
+  
+  .major-study .study-img img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* 大数据现状 */
+  .data-borrom {
+    padding: 20px;
+  }
+  
+  .data-now-img img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* 搜索框调整 */
+  .search-wrapper {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  /* 导航优化 */
+  .nav-g .nav-h ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .nav-g .nav-h ul li {
+    margin: 5px;
+  }
+  
+  /* 文字大小调整 */
+  h1 {
+    font-size: 28px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  h3 {
+    font-size: 20px;
+  }
+  
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* 按钮大小调整 */
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .btn-lg {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  
+  /* 相册网格 */
+  .grid figure {
+    margin: 10px 0;
+  }
+}
+
+/* 中等屏幕设备 (平板) */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* 导航栏 */
+  .navbar-nav > li > a {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  /* 图片网格 - 平板双列 */
+  .gallery-grid {
+    width: 50%;
+  }
+  
+  /* flex布局 */
+  .probootstrap-flex-block {
+    flex-direction: column;
+  }
+  
+  .probootstrap-flex-block .probootstrap-text,
+  .probootstrap-flex-block .probootstrap-image {
+    width: 100%;
+  }
+  
+  /* 瀑布流图片调整 */
+  #waterfall li {
+    width: 48% !important;
+  }
+  
+  /* 学习页面 */
+  .study-1 {
+    width: 35%;
+  }
+  
+  .nav-2 {
+    width: 65%;
+  }
+}
+
+/* 大一点的屏幕 */
+@media (min-width: 992px) {
+  /* 保持原有样式 */
+}
+
+/* 通用响应式辅助类 */
+.text-center-sm {
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .text-center-sm {
+    text-align: center;
+  }
+}
+
+/* 隐藏/显示类 */
+.visible-xs {
+  display: block !important;
+}
+
+.hidden-xs {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .visible-xs {
+    display: none !important;
+  }
+  
+  .hidden-xs {
+    display: block !important;
+  }
+}
+
+/* 触摸友好 */
+a, button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* 改善滚动体验 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 避免文字过大 */
+body {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}

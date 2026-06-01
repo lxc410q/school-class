@@ -1,734 +1,203 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>课外视野</title>
-<link href="css/style-ac.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
-<script src="js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){	
-	$(".zoom,.ilike").hide();
-
-	$(".zoom").each(function(){//遍历所有对象
-	var src=$(this).siblings("img").attr("src");
-		$(this).attr({href:src});
-	});
-	
-	$("#nav li").click(function(){
-		$("#nav a").removeClass("hover");
-		$(this).find("a").addClass("hover");
-	});
-	
-	$("#waterfall li").mouseover(function(){
-		$(this).addClass("hover");
-		$(this).find(".zoom,.ilike").show();
-	});
-	
-	$("#waterfall li").mouseout(function(){
-		$(this).removeClass("hover");
-		$(this).find(".zoom,.ilike").hide();
-	});
-});
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>课外视野</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+  <link href="css/style-ac.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/custom.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
 </head>
-
 <body>
-<section class="nav-top">
-<div>
-  <img src="img/666.png" width="100" height="50">	
-<div class="navbar-collapse">
-            <ul class="navbar-right">
-              <li><a href="index.html">班级概况</a></li>
-              <li><a href="class.html">学生风采</a></li>
-              <li><a href="courses.html">专业动态</a></li>
-              <li><a href="study.html">学习天地</a></li>
-              <li class="now"><a href="activities.html">课外视野</a></li>
-            </ul>
-          </div>
-          </div>
-</section>
-<div id="main">
-	<ul id="waterfall">
-    	
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (1).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (2).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">喜欢</a>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          <img src="img/666.png" alt="logo" style="max-height: 40px;">
+        </a>
       </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/g8.jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (4).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/g6.jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (6).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (7).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (8).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (9).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (10).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (11).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (12).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (13).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (14).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (15).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (16).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (17).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (18).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (19).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (20).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (21).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (22).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (23).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (24).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (25).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (26).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (27).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (28).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (29).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (30).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (31).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (32).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (33).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (34).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (35).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (36).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (37).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (38).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (39).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (40).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (41).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (42).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (43).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (44).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (45).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (46).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (47).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (48).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (49).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (50).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (51).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (52).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (53).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (54).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (55).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (56).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (57).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (58).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (59).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
-        
-        <li>
-        	<div class="img_block">
-            	<img src="img/timg (60).jpg" />
-                <a href="#" rel="lightbox[plants]" title="测试标题" class="zoom">放大</a>
-                <a href="#" class="ilike">我喜欢</a>
-          </div>
-            <h3>武汉</h3>
-            <div class="iNum"><span>1</span><a href="#">4</a></div>
-          <p>武汉，每天不一样</p>
-		</li>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">班级概况</a></li>
+          <li><a href="class.html">学生风采</a></li>
+          <li><a href="courses.html">专业动态</a></li>
+          <li><a href="study.html">学习天地</a></li>
+          <li class="active"><a href="activities.html">课外视野</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
+  <div id="main" class="container" style="margin-top: 30px;">
+    <ul id="waterfall" class="list-unstyled">
+      <li>
+        <div class="img_block">
+          <img src="img/timg (1).jpg" class="img-responsive">
+          <a href="img/timg (1).jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
+      
+      <li>
+        <div class="img_block">
+          <img src="img/timg (2).jpg" class="img-responsive">
+          <a href="img/timg (2).jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
+      
+      <li>
+        <div class="img_block">
+          <img src="img/g8.jpg" class="img-responsive">
+          <a href="img/g8.jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">我喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
+      
+      <li>
+        <div class="img_block">
+          <img src="img/timg (4).jpg" class="img-responsive">
+          <a href="img/timg (4).jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">我喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
+      
+      <li>
+        <div class="img_block">
+          <img src="img/g6.jpg" class="img-responsive">
+          <a href="img/g6.jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">我喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
+      
+      <li>
+        <div class="img_block">
+          <img src="img/timg (6).jpg" class="img-responsive">
+          <a href="img/timg (6).jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">我喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
+      
+      <li>
+        <div class="img_block">
+          <img src="img/timg (7).jpg" class="img-responsive">
+          <a href="img/timg (7).jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">我喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
+      
+      <li>
+        <div class="img_block">
+          <img src="img/timg (8).jpg" class="img-responsive">
+          <a href="img/timg (8).jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">我喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
+      
+      <li>
+        <div class="img_block">
+          <img src="img/timg (9).jpg" class="img-responsive">
+          <a href="img/timg (9).jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">我喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
+      
+      <li>
+        <div class="img_block">
+          <img src="img/timg (10).jpg" class="img-responsive">
+          <a href="img/timg (10).jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">我喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
+      
+      <li>
+        <div class="img_block">
+          <img src="img/timg (11).jpg" class="img-responsive">
+          <a href="img/timg (11).jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">我喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
+      
+      <li>
+        <div class="img_block">
+          <img src="img/timg (12).jpg" class="img-responsive">
+          <a href="img/timg (12).jpg" rel="lightbox[plants]" title="武汉" class="zoom">放大</a>
+          <a href="#" class="ilike">我喜欢</a>
+        </div>
+        <h3>武汉</h3>
+        <div class="iNum"><span>1</span><a href="#">4</a></div>
+        <p>武汉，每天不一样</p>
+      </li>
     </ul>
-    <br />
-<div style="visibility:hidden" id=loading class=loading><p><img src="img/loading.gif"><IMG src="img/load.gif"></p></div>
+    <br>
+    <div style="visibility:hidden" id="loading" class="loading"><p><img src="img/loading.gif"><img src="img/load.gif"></p></div>
+  </div>
 
-</div>
-<script src="js/lightbox.js"></script>
-<script src="js/jquery.masonry.min.js"></script>
-<script>
-  $(function(){
-    
-    var $waterfall = $('#waterfall');
-    
-    $waterfall.masonry({
-      columnWidth: 230
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/jquery.masonry.min.js"></script>
+  <script>
+    $(function(){
+      var $waterfall = $('#waterfall');
+      $waterfall.masonry({
+        columnWidth: 230
+      });
+      
+      $(".zoom,.ilike").hide();
+      $(".zoom").each(function(){
+        var src=$(this).siblings("img").attr("src");
+        $(this).attr({href:src});
+      });
+      $("#waterfall li").mouseover(function(){
+        $(this).addClass("hover");
+        $(this).find(".zoom,.ilike").show();
+      });
+      $("#waterfall li").mouseout(function(){
+        $(this).removeClass("hover");
+        $(this).find(".zoom,.ilike").hide();
+      });
     });
-    
-  });
-</script>
-
+  </script>
 </body>
 </html>
