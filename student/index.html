@@ -2,252 +2,602 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>班级概况</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <title>班级概况 - 大数据1701班</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'/>" sizes="any">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles-merged.css">
-  <link rel="stylesheet" href="css/style.min.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="stylesheet" href="css/lightbox.css">
   <link rel="stylesheet" href="css/custom.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,400,500,700|Noto+Serif+SC:400,700" rel="stylesheet">
+  <style>
+    :root {
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --accent-color: #667eea;
+      --bg-light: #f8f9ff;
+      --card-shadow: 0 8px 30px rgba(102, 126, 234, 0.15);
+      --card-hover-shadow: 0 15px 40px rgba(102, 126, 234, 0.25);
+    }
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-light);
+      overflow-x: hidden;
+    }
+
+    /* 移动优化的导航栏 */
+    .mobile-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+      padding: 12px 16px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #1a1a2e;
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--primary-gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .nav-title {
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.3px;
+    }
+
+    .menu-toggle {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: rgba(102, 126, 234, 0.1);
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle span {
+      width: 20px;
+      height: 2px;
+      background: var(--accent-color);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* 移动端菜单 */
+    .mobile-menu {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 20px;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 999;
+      border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+    }
+
+    .mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 14px 20px;
+      color: #1a1a2e;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      background: rgba(102, 126, 234, 0.1);
+      color: var(--accent-color);
+    }
+
+    /* Hero区域 */
+    .hero-section {
+      padding: 100px 16px 60px;
+      background: var(--primary-gradient);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .hero-subtitle {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+      letter-spacing: 1px;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 内容容器 */
+    .content-container {
+      padding: 30px 16px 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* 卡片样式 */
+    .info-card {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--card-shadow);
+      animation: fadeInScale 0.6s ease both;
+    }
+
+    .info-card:nth-child(1) { animation-delay: 0.1s; }
+    .info-card:nth-child(2) { animation-delay: 0.2s; }
+    .info-card:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .info-card h3 {
+      color: var(--accent-color);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card h3::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: var(--primary-gradient);
+      border-radius: 2px;
+    }
+
+    .info-card p {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      text-indent: 2em;
+    }
+
+    .info-card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      object-fit: cover;
+    }
+
+    .info-card .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--primary-gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .info-card .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    /* 特色卡片网格 */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      animation: fadeInScale 0.6s ease both;
+    }
+
+    .feature-card:nth-child(1) { animation-delay: 0.15s; }
+    .feature-card:nth-child(2) { animation-delay: 0.2s; }
+    .feature-card:nth-child(3) { animation-delay: 0.25s; }
+    .feature-card:nth-child(4) { animation-delay: 0.3s; }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-hover-shadow);
+    }
+
+    .feature-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h4 {
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .feature-card p {
+      color: #888;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* 照片画廊 */
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .photo-item {
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .photo-item:hover {
+      transform: scale(1.05);
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* CTA区域 */
+    .cta-section {
+      background: var(--primary-gradient);
+      border-radius: 20px;
+      padding: 40px 24px;
+      text-align: center;
+      color: white;
+    }
+
+    .cta-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cta-section .cta-btn {
+      display: inline-block;
+      padding: 14px 40px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .cta-section .cta-btn:hover {
+      background: white;
+      color: var(--accent-color);
+    }
+
+    /* 桌面端优化 */
+    @media (min-width: 768px) {
+      .mobile-navbar {
+        padding: 16px 24px;
+      }
+
+      .nav-title {
+        font-size: 20px;
+      }
+
+      .hero-section {
+        padding: 140px 40px 80px;
+      }
+
+      .hero-title {
+        font-size: 48px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .content-container {
+        padding: 50px 24px 120px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .photos-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<div class="probootstrap-search" id="probootstrap-search">
-  <a href="#" class="probootstrap-close js-probootstrap-close"><i class="icon-cross"></i></a>
-  <form action="#">
-    <input type="search" name="s" id="search" placeholder="Search a keyword and hit enter...">
-  </form>
-</div>
-
-<div class="probootstrap-page-wrapper">
-  <nav class="navbar navbar-default probootstrap-navbar">
-    <div class="container">
-      <div class="navbar-header">
-        <div class="btn-more js-btn-more visible-xs">
-          <a href="#"><i class="icon-dots-three-vertical"></i></a>
-        </div>
-
-        <a class="probootstrap-heading" href="index.html" style="font-size: 32px; font-weight: bold; color: inherit; text-decoration: none;">大数据1701班</a>
-      </div>
-
-      <div id="navbar-collapse" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="index.html">班级概况</a></li>
-          <li><a href="class.html">学生风采</a></li>
-          <li><a href="courses.html">专业动态</a></li>
-          <li><a href="study.html">学习天地</a></li>
-          <li><a href="activities.html">课外视野</a></li>
-        </ul>
-      </div>
+  <!-- 移动端导航栏 -->
+  <nav class="mobile-navbar" id="mobileNavbar">
+    <div class="navbar-content">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-logo-icon">17</div>
+        <span class="nav-title">大数据1701班</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
-  <section class="flexslider">
-    <ul class="slides">
-      <li style="background-image:url(img/QQ图片20181108165642.jpg)" class="overlay">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-              <div class="probootstrap-slider-text text-center">
-                <h1 class="probootstrap-heading probootstrap-animate"></h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </section>
+  <!-- 移动端菜单 -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="active">班级概况</a>
+    <a href="class.html">学生风采</a>
+    <a href="courses.html">专业动态</a>
+    <a href="study.html">学习天地</a>
+    <a href="activities.html">课外视野</a>
+  </div>
 
-  <section class="probootstrap-section probootstrap-section-colored">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-left section-heading probootstrap-animate">
-          <h2>欢迎来到大数据1701班</h2>
-        </div>
-      </div>
+  <!-- Hero区域 -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">欢迎来到大数据1701班</h1>
+      <p class="hero-subtitle">2017级计算机应用专业大数据方向</p>
     </div>
   </section>
 
-  <section class="probootstrap-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="probootstrap-flex-block">
-            <div class="probootstrap-text probootstrap-animate">
-              <h3>关于我们</h3>
-              <p>2017级计算机应用专业大数据方向</p>
-              <p><a href="courses.html" class="btn btn-primary">查看更多</a></p>
-            </div>
-            <div class="probootstrap-image probootstrap-animate" style="background-image: url(img/777.jpg); background-size: cover; background-position: center;">
-            </div>
-          </div>
-        </div>
+  <!-- 内容容器 -->
+  <main class="content-container">
+    <!-- 关于我们 -->
+    <section class="info-card">
+      <h3>关于我们</h3>
+      <img src="img/777.jpg" alt="班级照片">
+      <p>我们是长江职业学院2017级计算机应用专业大数据方向的学生，充满活力与创新精神。</p>
+      <a href="courses.html" class="btn">查看更多 →</a>
+    </section>
+
+    <!-- 特色卡片 -->
+    <section class="features-grid">
+      <div class="feature-card">
+        <img src="img/g3.jpg" alt="军训">
+        <h4>军训时光</h4>
+        <p>我们的成长之路</p>
       </div>
-    </div>
-  </section>
-
-  <section class="probootstrap-section probootstrap-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="our-img">
-            <h1>我们的照片</h1>
-          </div>
-          <div class="tab-content">
-            <div id="featured-news" class="tab-pane fade in active">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="owl-carousel" id="owl1">
-                    <div class="item">
-                      <a href="#" class="probootstrap-featured-news-box">
-                        <figure class="probootstrap-media"><img src="img/g3.jpg" alt="" class="img-responsive" style="max-height: 250px; object-fit: cover;"></figure>
-                        <div class="probootstrap-text">
-                          <h3>军训</h3>
-                          <p>在操场上军训</p>
-                          <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="item">
-                      <a href="#" class="probootstrap-featured-news-box">
-                        <figure class="probootstrap-media"><img src="img/g4.jpg" alt="" class="img-responsive" style="max-height: 250px; object-fit: cover;"></figure>
-                        <div class="probootstrap-text">
-                          <h3>军训</h3>
-                          <p>在操场上军训</p>
-                          <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="item">
-                      <a href="#" class="probootstrap-featured-news-box">
-                        <figure class="probootstrap-media"><img src="img/g5.jpg" alt="" class="img-responsive" style="max-height: 250px; object-fit: cover;"></figure>
-                        <div class="probootstrap-text">
-                          <h3>军训</h3>
-                          <p>在操场上军训</p>
-                          <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="item">
-                      <a href="#" class="probootstrap-featured-news-box">
-                        <figure class="probootstrap-media"><img src="img/g6.jpg" alt="" class="img-responsive" style="max-height: 250px; object-fit: cover;"></figure>
-                        <div class="probootstrap-text">
-                          <h3>军训</h3>
-                          <p>在操场上军训</p>
-                          <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="upcoming-events" class="tab-pane fade">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="owl-carousel" id="owl2">
-                    <div class="item">
-                      <a href="#" class="probootstrap-featured-news-box">
-                        <figure class="probootstrap-media"><img src="img/g1.jpg" alt="" class="img-responsive" style="max-height: 250px; object-fit: cover;"></figure>
-                        <div class="probootstrap-text">
-                          <h3>军训</h3>
-                          <p>在操场上军训</p>
-                          <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="item">
-                      <a href="#" class="probootstrap-featured-news-box">
-                        <figure class="probootstrap-media"><img src="img/g8.jpg" alt="" class="img-responsive" style="max-height: 250px; object-fit: cover;"></figure>
-                        <div class="probootstrap-text">
-                          <h3>军训</h3>
-                          <p>在操场上军训</p>
-                          <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="item">
-                      <a href="#" class="probootstrap-featured-news-box">
-                        <figure class="probootstrap-media"><img src="img/g9.jpg" alt="" class="img-responsive" style="max-height: 250px; object-fit: cover;"></figure>
-                        <div class="probootstrap-text">
-                          <h3>军训</h3>
-                          <p>在操场上军训</p>
-                          <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="item">
-                      <a href="#" class="probootstrap-featured-news-box">
-                        <figure class="probootstrap-media"><img src="img/g2.jpg" alt="" class="img-responsive" style="max-height: 250px; object-fit: cover;"></figure>
-                        <div class="probootstrap-text">
-                          <h3>军训</h3>
-                          <p>在操场上军训</p>
-                          <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="feature-card">
+        <img src="img/g4.jpg" alt="军训">
+        <h4>精彩瞬间</h4>
+        <p>珍贵的回忆</p>
       </div>
-    </div>
-  </section>
-
-  <section class="probootstrap-section">
-    <div class="container">
-      <div class="major-top">    
-        <div class="one">
-          <a href="courses.html">
-            <img src="img/uC4SA1.jpg" class="img-responsive" style="max-width: 100%; height: auto;">
-          </a>
-        </div>
-        <div class="two">
-          <h3>大数据时代</h3>
-          <p style="text-indent:2em;">数据价值的凸显和数据获取手段、数据处理技术的改进是"大数据"爆发的根源。而随着数据生产要素化，数据科学、数据科技的不断发展和数据价值的深度挖掘及应用，一场大数据革命正在进行，它将带动国家战略及区域经济发展，智慧城市建设，企业转型升级，社会管理及个人工作、生活等各个领域的创新和变革。如何真正应用好大数据，发挥大数据的威力，是当前所有人都在共同研究和探索的问题。</p>
-          <p style="text-indent:2em;">大数据在数据科学理论的指导下，改变创新模式和理念，发展大数据技术，深化大数据应用和实践，而行业大数据将是大数据最大、最佳的应用领域。</p>
-        </div>	
-      </div>	
-    </div>	
-  </section>
-
-  <section class="probootstrap-section">
-    <div class="container">
-      <div class="major-top">    
-        <div class="one">
-          <a href="#">
-            <img src="img/F64ADBB84419E0725190F581F5B_67AF2D96_36563.jpg" class="img-responsive" style="max-width: 100%; height: auto;">
-          </a>
-        </div>
-        <div class="two">
-          <h3>计算机应用技术</h3>
-          <p style="text-indent:2em;">计算机应用技术专业，做为长江职业学院（原湖北经济管理大学）最早设立的专业之一，专业教学体系成熟，建设成果显著，根据计算机行业发展前沿需求，现开设有两个专业方向：大数据应用方向、信息管理方向。</p>
-          <p style="text-indent:2em;">计算机应用技术专业具有先进、完善的教学和实训场所，拥有国家资助建设的国家计算机应用教育实训基地、湖北省服务外包人才培养基地、2个综合性实训工作室、8个校外校企合作实习就业基地，为学生的学习、实习、就业等方面提供良好的条件。近年来，专业学生的就业率始终保持在97%以上，为社会输送了大批高素质技能型人才。</p>
-        </div>	
-      </div>	
-    </div>	
-  </section>
-
-  <section class="probootstrap-cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">激励前行，展望蓝天</h2>
-          <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Let's Go！</a>
-        </div>
+      <div class="feature-card">
+        <img src="img/g5.jpg" alt="军训">
+        <h4>校园生活</h4>
+        <p>美好的时光</p>
       </div>
-    </div>
-  </section>
+      <div class="feature-card">
+        <img src="img/g6.jpg" alt="军训">
+        <h4>青春岁月</h4>
+        <p>我们的故事</p>
+      </div>
+    </section>
 
-</div>
+    <!-- 大数据时代 -->
+    <section class="info-card">
+      <h3>大数据时代</h3>
+      <img src="img/uC4SA1.jpg" alt="大数据">
+      <p>数据价值的凸显和数据获取手段、数据处理技术的改进是"大数据"爆发的根源。而随着数据生产要素化，数据科学、数据科技的不断发展和数据价值的深度挖掘及应用，一场大数据革命正在进行。</p>
+      <p>大数据在数据科学理论的指导下，改变创新模式和理念，发展大数据技术，深化大数据应用和实践，而行业大数据将是大数据最大、最佳的应用领域。</p>
+    </section>
 
-<script src="js/scripts.min.js"></script>
-<script src="js/main.min.js"></script>
-<script src="js/custom.js"></script>
+    <!-- 计算机应用技术 -->
+    <section class="info-card">
+      <h3>计算机应用技术</h3>
+      <img src="img/F64ADBB84419E0725190F581F5B_67AF2D96_36563.jpg" alt="计算机应用技术">
+      <p>计算机应用技术专业，做为长江职业学院（原湖北经济管理大学）最早设立的专业之一，专业教学体系成熟，建设成果显著，根据计算机行业发展前沿需求，现开设有两个专业方向：大数据应用方向、信息管理方向。</p>
+      <p>计算机应用技术专业具有先进、完善的教学和实训场所，拥有国家资助建设的国家计算机应用教育实训基地、湖北省服务外包人才培养基地、2个综合性实训工作室、8个校外校企合作实习就业基地。</p>
+    </section>
 
+    <!-- 我们的照片画廊 -->
+    <section class="info-card">
+      <h3>我们的照片</h3>
+      <div class="photos-grid">
+        <a href="img/g1.jpg" data-lightbox="gallery" class="photo-item">
+          <img src="img/g1.jpg" alt="照片1">
+        </a>
+        <a href="img/g2.jpg" data-lightbox="gallery" class="photo-item">
+          <img src="img/g2.jpg" alt="照片2">
+        </a>
+        <a href="img/g3.jpg" data-lightbox="gallery" class="photo-item">
+          <img src="img/g3.jpg" alt="照片3">
+        </a>
+        <a href="img/g4.jpg" data-lightbox="gallery" class="photo-item">
+          <img src="img/g4.jpg" alt="照片4">
+        </a>
+        <a href="img/g5.jpg" data-lightbox="gallery" class="photo-item">
+          <img src="img/g5.jpg" alt="照片5">
+        </a>
+        <a href="img/g6.jpg" data-lightbox="gallery" class="photo-item">
+          <img src="img/g6.jpg" alt="照片6">
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA区域 -->
+    <section class="cta-section">
+      <h2>激励前行，展望蓝天</h2>
+      <a href="class.html" class="cta-btn">查看更多精彩 →</a>
+    </section>
+  </main>
+
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/lightbox-plus-jquery.min.js"></script>
+  <script>
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileNavbar = document.getElementById('mobileNavbar');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    // 点击菜单项关闭菜单
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    // 滚动时导航栏效果
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 50) {
+        mobileNavbar.classList.add('scrolled');
+      } else {
+        mobileNavbar.classList.remove('scrolled');
+      }
+      
+      lastScroll = currentScroll;
+    });
+
+    // 配置 lightbox
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'alwaysShowNavOnTouchDevices': true,
+      'disableScrolling': true
+    });
+  </script>
 </body>
 </html>
