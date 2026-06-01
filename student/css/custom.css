@@ -58,6 +58,32 @@ p {
   margin-bottom: 15px;
 }
 
+/* 通用样式 */
+.major-study {
+  padding: 30px 0;
+}
+
+.major-study .study {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.major-study .study-img {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.major-study .study-img img {
+  max-width: 100%;
+  height: auto;
+}
+
+.major-study .study-major {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
 /* 小屏幕设备 (手机) */
 @media (max-width: 767px) {
   /* 导航栏优化 */
@@ -228,6 +254,7 @@ p {
     width: 100%;
     max-width: 300px;
     height: auto;
+    margin: 0 auto;
   }
   
   /* 专业动态页面 */
@@ -240,6 +267,11 @@ p {
     margin-bottom: 20px;
   }
   
+  .major-study .study h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
   .major-study .study-img {
     text-align: center;
     margin-bottom: 20px;
@@ -247,8 +279,19 @@ p {
   
   .major-study .study-img img {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     height: auto;
+    margin: 0 auto;
+  }
+  
+  .major-study .study-major {
+    width: 100%;
+    padding: 0 10px;
+    line-height: 1.6;
+  }
+  
+  .major-study .study-major p {
+    font-size: 14px;
   }
   
   /* 大数据现状 */
@@ -365,6 +408,19 @@ p {
   .probootstrap-section {
     padding: 40px 0;
   }
+  
+  /* Bootstrap栅格系统优化 */
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .col-md-4, .col-md-8,
+  .col-sm-6, .col-sm-12,
+  .col-md-6, .col-md-12 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 /* 中等屏幕设备 (平板) */
@@ -413,6 +469,25 @@ p {
   .nav-book1 {
     width: 50%;
   }
+  
+  /* 专业动态页面 */
+  .major-study {
+    padding: 20px;
+  }
+  
+  .major-study .study {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .major-study .study-img img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .major-study .study-major {
+    line-height: 1.7;
+  }
 }
 
 /* 大一点的屏幕 */
@@ -434,8 +509,8 @@ p {
   
   /* 专业动态 */
   .major-study {
-    display: flex;
-    align-items: flex-start;
+    display: block;
+    padding: 30px 0;
   }
   
   .major-study .study {
@@ -445,12 +520,16 @@ p {
   }
   
   .major-study .study-img {
+    float: left;
     width: 30%;
     padding-right: 30px;
+    margin-bottom: 0;
   }
   
   .major-study .study-major {
+    float: left;
     width: 70%;
+    line-height: 1.8;
   }
   
   /* flex布局 */
@@ -515,4 +594,23 @@ html {
 body {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+}
+
+/* Bootstrap栅格系统全局优化 */
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+[class*="col-"] {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
