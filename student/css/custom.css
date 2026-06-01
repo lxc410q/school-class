@@ -118,7 +118,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* 导航栏标题样式 */
 .probootstrap-heading {
-  font-size: 48px;
+  font-size: 32px;
   font-weight: bold;
   color: inherit;
   text-decoration: none;
@@ -127,6 +127,75 @@ h1, h2, h3, h4, h5, h6,
   padding: 0;
   margin: 0;
   vertical-align: middle;
+}
+
+/* 卡片阴影和圆角 */
+.probootstrap-featured-news-box {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.probootstrap-featured-news-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.15), 0 4px 10px rgba(0, 123, 255, 0.1);
+}
+
+.probootstrap-featured-news-box figure img {
+  border-radius: 12px 12px 0 0;
+}
+
+/* 图片圆角 */
+img {
+  border-radius: 8px;
+}
+
+.probootstrap-image {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 渐变背景 */
+.probootstrap-section.probootstrap-section-colored {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.probootstrap-cta {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+}
+
+/* 按钮优化 */
+.btn {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* 增加留白 */
+.probootstrap-section {
+  padding: 60px 0;
+}
+
+/* 导航栏优化 */
+.navbar-header {
+  height: 60px;
+}
+
+/* 卡片动画 */
+.probootstrap-featured-news-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 文本优化 */
+p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
 }
 
 .nav-logo {
