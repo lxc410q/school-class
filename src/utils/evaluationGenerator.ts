@@ -11,11 +11,33 @@ const evaluationTemplates = [
   "细节丰富，构图完整，值得欣赏。"
 ];
 
+const quoteTemplates = [
+  "每一道光线都在指引你前进的方向。",
+  "色彩是生活最好的调味料，让每一天都绚烂多彩。",
+  "此刻的定格，是未来最美的回忆。",
+  "用心发现，平凡中藏着无限光芒。",
+  "每一步都算数，每一刻都珍贵。",
+  "阳光总在风雨后，美好就在眼前。",
+  "梦想如星辰，虽遥远却照亮前路。",
+  "简单的美好，最能温暖人心。",
+  "今天的努力，是明天的底气。",
+  "微笑面对，生活处处是风景。",
+  "坚持你所热爱的，热爱你所坚持的。",
+  "每一天都是新的开始，充满无限可能。"
+];
+
 export const generateEvaluation = (): string => {
   const today = new Date();
   const dateStr = today.toISOString().split('T')[0];
   const randomTemplate = evaluationTemplates[Math.floor(Math.random() * evaluationTemplates.length)];
   return `${dateStr}：${randomTemplate}`;
+};
+
+export const generateInspirationalQuote = (): string => {
+  const today = new Date();
+  const dateStr = today.toISOString().split('T')[0];
+  const randomQuote = quoteTemplates[Math.floor(Math.random() * quoteTemplates.length)];
+  return `${dateStr}：${randomQuote}`;
 };
 
 export const formatDate = (dateStr: string): string => {
