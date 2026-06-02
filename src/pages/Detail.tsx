@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, Sparkles } from 'lucide-react';
+import { ArrowLeft, Calendar, Sparkles, Heart } from 'lucide-react';
 import { getEvaluationById } from '../utils/storage';
 import { formatDate } from '../utils/evaluationGenerator';
 
@@ -27,6 +27,7 @@ export default function Detail() {
 
   const datePart = evaluation.comment.split('：')[0];
   const commentPart = evaluation.comment.split('：')[1] || evaluation.comment;
+  const isEvaluation = evaluation.type === 'evaluation';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-6 px-4 sm:py-8">
@@ -40,18 +41,37 @@ export default function Detail() {
         </button>
 
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <div className="aspect-video bg-slate-100">
+          <div className="aspect-video bg-slate-100 relative">
             <img
               src={evaluation.imageUrl}
               alt="评价图片"
               className="w-full h-full object-contain"
             />
+            {/* 类型标签 */}
+            <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-lg text-sm font-medium flex items-center gap-1.5 shadow-md ${
+              isEvaluation 
+                ? 'bg-blue-600 text-white' 
+                : 'bg-pink-600 text-white'
+            }`}>
+              {isEvaluation ? (
+                <Sparkles className="w-4 h-4" />
+              ) : (
+                <Heart className="w-4 h-4" />
+              )}
+              {isEvaluation ? '构图分析' : '励志语录'}
+            </div>
           </div>
 
           <div className="p-5 sm:p-6 md:p-8">
             <div className="flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6">
-              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
-              <h1 className="text-xl sm:text-2xl font-bold text-slate-800">评价详情</h1>
+              {isEvaluation ? (
+                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
+              ) : (
+                <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-pink-600" />
+              )}
+              <h1 className="text-xl sm:text-2xl font-bold text-slate-800">
+                {isEvaluation ? '构图评价详情' : '励志语录详情'}
+              </h1>
             </div>
 
             <div className="flex items-center gap-1.5 sm:gap-2 text-slate-500 mb-5 sm:mb-6">
@@ -59,7 +79,11 @@ export default function Detail() {
               <span className="text-base sm:text-lg">{formatDate(datePart)}</span>
             </div>
 
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 sm:p-6 border border-blue-200">
+            <div className={`rounded-xl p-4 sm:p-6 border ${
+              isEvaluation 
+                ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200' 
+                : 'bg-gradient-to-r from-pink-50 to-rose-50 border-pink-200'
+            }`}>
               <p className="text-base sm:text-xl text-slate-700 leading-relaxed">
                 {commentPart}
               </p>

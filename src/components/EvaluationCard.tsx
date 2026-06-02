@@ -1,4 +1,4 @@
-import { Calendar, Eye } from 'lucide-react';
+import { Calendar, Eye, Sparkles, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Evaluation } from '../types';
 import { formatDate } from '../utils/evaluationGenerator';
@@ -10,6 +10,7 @@ interface EvaluationCardProps {
 export const EvaluationCard = ({ evaluation }: EvaluationCardProps) => {
   const datePart = evaluation.comment.split('：')[0];
   const commentPart = evaluation.comment.split('：')[1] || evaluation.comment;
+  const isEvaluation = evaluation.type === 'evaluation';
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow duration-300 group">
@@ -19,6 +20,19 @@ export const EvaluationCard = ({ evaluation }: EvaluationCardProps) => {
           alt="评价图片"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
+        {/* 类型标签 */}
+        <div className={`absolute top-2 left-2 px-2 py-1 rounded-lg text-xs font-medium flex items-center gap-1 shadow-sm ${
+          isEvaluation 
+            ? 'bg-blue-600 text-white' 
+            : 'bg-pink-600 text-white'
+        }`}>
+          {isEvaluation ? (
+            <Sparkles className="w-3 h-3" />
+          ) : (
+            <Heart className="w-3 h-3" />
+          )}
+          {isEvaluation ? '构图分析' : '励志语录'}
+        </div>
         <Link
           to={`/detail/${evaluation.id}`}
           className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"

@@ -31,7 +31,8 @@ export default function Home() {
         imageUrl,
         comment,
         date: new Date().toISOString().split('T')[0],
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        type: mode
       };
 
       saveEvaluation(evaluation);
