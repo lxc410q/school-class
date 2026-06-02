@@ -19,20 +19,32 @@ export const ImageUpload = ({ onImageUpload, isLoading = false }: ImageUploadPro
     if (!imageFile) return;
 
     const reader = new FileReader();
+    
     reader.onload = (event) => {
       const result = event.target?.result as string;
-      onImageUpload(result);
+      if (result) {
+        onImageUpload(result);
+      }
     };
+
+    reader.onerror = (error) => {
+      console.error('FileReader error:', error);
+    };
+
     reader.readAsDataURL(imageFile);
   }, [onImageUpload]);
 
   const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
-    processFiles(files);
-    // 重置 input，允许再次选择同一文件
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
+    if (files.length > 0) {
+      processFiles(files);
     }
+    // 重置 input，允许再次选择同一文件
+    setTimeout(() => {
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }, 0);
   }, [processFiles]);
 
   const handleDrop = useCallback((e: React.DragEvent<HTMLDivElement>) => {
@@ -57,14 +69,15 @@ export const ImageUpload = ({ onImageUpload, isLoading = false }: ImageUploadPro
       role="button"
       tabIndex={0}
       aria-label="上传图片"
-      className="border-2 border-dashed border-slate-300 rounded-2xl p-6 sm:p-8 md:p-12 text-center transition-all duration-300 hover:border-blue-500 hover:bg-blue-50/50 active:bg-blue-100/50 cursor-pointer"
+      className="border-2 border-dashed border-slate-300 rounded-2xl p-6 sm:p-8 md:p-12 text-center transition-all duration-300 hover:border-blue-500 hover:bg-blue-50/50 active:bg-blue-100/50 cursor-pointer relative"
     >
       <input
         ref={fileInputRef}
         type="file"
         accept="image/*"
+        capture="environment"
         onChange={handleFileSelect}
-        className="absolute opacity-0 w-0 h-0 overflow-hidden"
+        className="absolute inset-0 opacity-0 cursor-pointer"
         disabled={isLoading}
       />
       <div className="flex flex-col items-center gap-3 sm:gap-4 pointer-events-none">
