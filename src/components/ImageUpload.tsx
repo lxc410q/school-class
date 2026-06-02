@@ -7,44 +7,36 @@ interface ImageUploadProps {
 }
 
 export const ImageUpload = ({ onImageUpload, isLoading = false }: ImageUploadProps) => {
+  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, []);
+
+  const processFiles = useCallback((files: File[]) => {
+    const imageFile = files.find(file => file.type.startsWith('image/'));
+    if (!imageFile) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const result = event.target?.result as string;
+      onImageUpload(result);
+    };
+    reader.readAsDataURL(imageFile);
+  }, [onImageUpload]);
+
+  const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    processFiles(files);
+  }, [processFiles]);
+
   const handleDrop = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
     if (isLoading) return;
     
     const files = Array.from(e.dataTransfer.files);
-    handleDropFiles(files);
-  }, [isLoading, handleDropFiles]);
-
-  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, []);
-
-  const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files || []);
-    const imageFile = files.find(file => file.type.startsWith('image/'));
-    if (!imageFile) return;
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const result = event.target?.result as string;
-      onImageUpload(result);
-    };
-    reader.readAsDataURL(imageFile);
-  }, [onImageUpload]);
-
-  const handleDropFiles = useCallback((files: File[]) => {
-    const imageFile = files.find(file => file.type.startsWith('image/'));
-    if (!imageFile) return;
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const result = event.target?.result as string;
-      onImageUpload(result);
-    };
-    reader.readAsDataURL(imageFile);
-  }, [onImageUpload]);
+    processFiles(files);
+  }, [isLoading, processFiles]);
 
   return (
     <div
