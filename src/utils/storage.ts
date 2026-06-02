@@ -17,3 +17,9 @@ export const getEvaluationById = (id: string): Evaluation | undefined => {
   const evaluations = getEvaluations();
   return evaluations.find(evalItem => evalItem.id === id);
 };
+
+export const deleteEvaluation = (id: string): void => {
+  const evaluations = getEvaluations();
+  const filteredEvaluations = evaluations.filter(evalItem => evalItem.id !== id);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(filteredEvaluations));
+};

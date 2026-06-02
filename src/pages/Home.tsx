@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { ImageUpload } from '../components/ImageUpload';
 import { EvaluationCard } from '../components/EvaluationCard';
 import { Evaluation } from '../types';
-import { getEvaluations, saveEvaluation } from '../utils/storage';
+import { getEvaluations, saveEvaluation, deleteEvaluation } from '../utils/storage';
 import { generateEvaluation, generateInspirationalQuote } from '../utils/evaluationGenerator';
-import { Sparkles, Heart } from 'lucide-react';
+import { Sparkles, Heart, History, Trash2 } from 'lucide-react';
 
 type Mode = 'evaluation' | 'inspiration';
 
@@ -14,6 +14,7 @@ export default function Home() {
   const [showResult, setShowResult] = useState(false);
   const [currentEvaluation, setCurrentEvaluation] = useState<Evaluation | null>(null);
   const [mode, setMode] = useState<Mode>('evaluation');
+  const [showHistory, setShowHistory] = useState(true);
 
   useEffect(() => {
     setEvaluations(getEvaluations());
@@ -39,6 +40,17 @@ export default function Home() {
       setShowResult(true);
       setIsLoading(false);
     }, 1500);
+  };
+
+  const handleDeleteEvaluation = (id: string) => {
+    if (confirm('确定要删除这条记录吗？')) {
+      deleteEvaluation(id);
+      setEvaluations(getEvaluations());
+      if (currentEvaluation?.id === id) {
+        setShowResult(false);
+        setCurrentEvaluation(null);
+      }
+    }
   };
 
   return (
@@ -87,18 +99,27 @@ export default function Home() {
           <ImageUpload onImageUpload={handleImageUpload} isLoading={isLoading} />
 
           {showResult && currentEvaluation && (
-            <div className={`bg-white rounded-2xl p-4 sm:p-6 shadow-lg border animate-in slide-in-from-bottom-4 duration-500 ${
+            <div className={`bg-white rounded-2xl p-4 sm:p-6 shadow-lg border ${
               mode === 'evaluation' ? 'border-blue-200' : 'border-pink-200'
             }`}>
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                {mode === 'evaluation' ? (
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
-                ) : (
-                  <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-pink-600" />
-                )}
-                <h2 className="text-lg sm:text-xl font-semibold text-slate-800">
-                  {mode === 'evaluation' ? '评价结果' : '今日语录'}
-                </h2>
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <div className="flex items-center gap-2">
+                  {mode === 'evaluation' ? (
+                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
+                  ) : (
+                    <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-pink-600" />
+                  )}
+                  <h2 className="text-lg sm:text-xl font-semibold text-slate-800">
+                    {mode === 'evaluation' ? '评价结果' : '今日语录'}
+                  </h2>
+                </div>
+                <button
+                  onClick={() => handleDeleteEvaluation(currentEvaluation.id)}
+                  className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                  aria-label="删除"
+                >
+                  <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                </button>
               </div>
               <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="aspect-video rounded-xl overflow-hidden bg-slate-100">
@@ -121,12 +142,37 @@ export default function Home() {
 
           {evaluations.length > 0 && (
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 sm:mb-6">历史记录</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                {evaluations.map(evaluation => (
-                  <EvaluationCard key={evaluation.id} evaluation={evaluation} />
-                ))}
+              <div className="flex items-center justify-between mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  <History className="w-5 h-5 sm:w-6 sm:h-6" />
+                  历史记录
+                </h2>
+                <button
+                  onClick={() => setShowHistory(!showHistory)}
+                  className="text-sm text-slate-500 hover:text-slate-700 transition-colors"
+                >
+                  {showHistory ? '收起' : '展开'}
+                </button>
               </div>
+              {showHistory && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                  {evaluations.map(evaluation => (
+                    <div key={evaluation.id} className="relative group">
+                      <EvaluationCard evaluation={evaluation} />
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDeleteEvaluation(evaluation.id);
+                        }}
+                        className="absolute top-2 right-2 p-1.5 bg-white/90 hover:bg-red-50 text-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-all shadow-sm"
+                        aria-label="删除"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
