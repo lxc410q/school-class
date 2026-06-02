@@ -23,39 +23,22 @@ export default function Home() {
     setIsLoading(true);
     setShowResult(false);
 
-    // 使用更短的超时时间，并确保一定会执行
     setTimeout(() => {
-      try {
-        const comment = mode === 'evaluation' ? generateEvaluation() : generateInspirationalQuote();
-        const evaluation: Evaluation = {
-          id: Date.now().toString(),
-          imageUrl,
-          comment,
-          date: new Date().toISOString().split('T')[0],
-          timestamp: Date.now()
-        };
+      const comment = mode === 'evaluation' ? generateEvaluation() : generateInspirationalQuote();
+      const evaluation: Evaluation = {
+        id: Date.now().toString(),
+        imageUrl,
+        comment,
+        date: new Date().toISOString().split('T')[0],
+        timestamp: Date.now()
+      };
 
-        saveEvaluation(evaluation);
-        setCurrentEvaluation(evaluation);
-        setEvaluations(getEvaluations());
-        setShowResult(true);
-      } catch (error) {
-        console.error('Error generating evaluation:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    }, 1000);
-
-    // 安全机制：5秒后强制结束 loading，防止卡死
-    setTimeout(() => {
-      setIsLoading(prev => {
-        if (prev) {
-          console.warn('Safety timeout triggered - forcing loading state to false');
-          return false;
-        }
-        return prev;
-      });
-    }, 5000);
+      saveEvaluation(evaluation);
+      setCurrentEvaluation(evaluation);
+      setEvaluations(getEvaluations());
+      setShowResult(true);
+      setIsLoading(false);
+    }, 1500);
   };
 
   return (
