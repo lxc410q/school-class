@@ -13,8 +13,8 @@ export const ImageUpload = ({ onImageUpload, isLoading = false }: ImageUploadPro
     if (isLoading) return;
     
     const files = Array.from(e.dataTransfer.files);
-    handleFiles(files);
-  }, [isLoading, onImageUpload]);
+    handleDropFiles(files);
+  }, [isLoading, handleDropFiles]);
 
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -23,20 +23,28 @@ export const ImageUpload = ({ onImageUpload, isLoading = false }: ImageUploadPro
 
   const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
-    handleFiles(files);
-  }, [onImageUpload]);
-
-  const handleFiles = (files: File[]) => {
     const imageFile = files.find(file => file.type.startsWith('image/'));
     if (!imageFile) return;
 
     const reader = new FileReader();
-    reader.onload = (e) => {
-      const result = e.target?.result as string;
+    reader.onload = (event) => {
+      const result = event.target?.result as string;
       onImageUpload(result);
     };
     reader.readAsDataURL(imageFile);
-  };
+  }, [onImageUpload]);
+
+  const handleDropFiles = useCallback((files: File[]) => {
+    const imageFile = files.find(file => file.type.startsWith('image/'));
+    if (!imageFile) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const result = event.target?.result as string;
+      onImageUpload(result);
+    };
+    reader.readAsDataURL(imageFile);
+  }, [onImageUpload]);
 
   return (
     <div
