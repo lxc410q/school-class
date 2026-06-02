@@ -3,8 +3,8 @@ import { ImageUpload } from '../components/ImageUpload';
 import { EvaluationCard } from '../components/EvaluationCard';
 import { Evaluation } from '../types';
 import { getEvaluations, saveEvaluation, deleteEvaluation } from '../utils/storage';
-import { generateEvaluation, generateInspirationalQuote } from '../utils/evaluationGenerator';
-import { Sparkles, Heart, History, Trash2 } from 'lucide-react';
+import { generateEvaluation, generateInspirationalQuote, formatFullDateTime } from '../utils/evaluationGenerator';
+import { Sparkles, Heart, History, Trash2, Clock } from 'lucide-react';
 
 type Mode = 'evaluation' | 'inspiration';
 
@@ -121,6 +121,10 @@ export default function Home() {
                 >
                   <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
+              </div>
+              <div className="flex items-center gap-2 mb-4 text-sm text-slate-500">
+                <Clock className="w-4 h-4" />
+                <span>{formatFullDateTime(currentEvaluation.timestamp)}</span>
               </div>
               <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="aspect-video rounded-xl overflow-hidden bg-slate-100">

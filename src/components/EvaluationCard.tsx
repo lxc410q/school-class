@@ -1,7 +1,7 @@
-import { Calendar, Eye, Sparkles, Heart } from 'lucide-react';
+import { Calendar, Eye, Sparkles, Heart, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Evaluation } from '../types';
-import { formatDate } from '../utils/evaluationGenerator';
+import { formatDate, formatFullDateTime } from '../utils/evaluationGenerator';
 
 interface EvaluationCardProps {
   evaluation: Evaluation;
@@ -44,9 +44,15 @@ export const EvaluationCard = ({ evaluation }: EvaluationCardProps) => {
         </Link>
       </div>
       <div className="p-3 sm:p-4">
-        <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-500 mb-1.5 sm:mb-2">
-          <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-          <span>{formatDate(datePart)}</span>
+        <div className="space-y-1.5 mb-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-500">
+            <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <span>{formatDate(datePart)}</span>
+          </div>
+          <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-400">
+            <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <span>{formatFullDateTime(evaluation.timestamp)}</span>
+          </div>
         </div>
         <p className="text-sm sm:text-base text-slate-700 line-clamp-2">{commentPart}</p>
       </div>

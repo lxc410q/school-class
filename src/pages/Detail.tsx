@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, Sparkles, Heart } from 'lucide-react';
+import { ArrowLeft, Calendar, Sparkles, Heart, Clock } from 'lucide-react';
 import { getEvaluationById } from '../utils/storage';
-import { formatDate } from '../utils/evaluationGenerator';
+import { formatDate, formatFullDateTime } from '../utils/evaluationGenerator';
 
 export default function Detail() {
   const { id } = useParams<{ id: string }>();
@@ -74,9 +74,15 @@ export default function Detail() {
               </h1>
             </div>
 
-            <div className="flex items-center gap-1.5 sm:gap-2 text-slate-500 mb-5 sm:mb-6">
-              <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-base sm:text-lg">{formatDate(datePart)}</span>
+            <div className="space-y-3 mb-5 sm:mb-6">
+              <div className="flex items-center gap-2 text-slate-500">
+                <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span className="text-base sm:text-lg">{formatDate(datePart)}</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-400">
+                <Clock className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span className="text-base sm:text-lg">{formatFullDateTime(evaluation.timestamp)}</span>
+              </div>
             </div>
 
             <div className={`rounded-xl p-4 sm:p-6 border ${
