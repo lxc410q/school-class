@@ -10,14 +10,14 @@ export default function Detail() {
 
   if (!evaluation) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex items-center justify-center px-4">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-slate-800 mb-4">评价不存在</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4">评价不存在</h2>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors text-sm sm:text-base"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             返回首页
           </Link>
         </div>
@@ -29,13 +29,13 @@ export default function Detail() {
   const commentPart = evaluation.comment.split('：')[1] || evaluation.comment;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-6 px-4 sm:py-8">
       <div className="max-w-4xl mx-auto">
         <button
           onClick={() => navigate(-1)}
-          className="inline-flex items-center gap-2 px-4 py-2 text-slate-600 hover:text-blue-600 transition-colors mb-8"
+          className="inline-flex items-center gap-2 px-3 py-2 text-slate-600 hover:text-blue-600 transition-colors mb-6 sm:mb-8 text-sm sm:text-base"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           返回
         </button>
 
@@ -48,19 +48,19 @@ export default function Detail() {
             />
           </div>
 
-          <div className="p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <Sparkles className="w-6 h-6 text-blue-600" />
-              <h1 className="text-2xl font-bold text-slate-800">评价详情</h1>
+          <div className="p-5 sm:p-6 md:p-8">
+            <div className="flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
+              <h1 className="text-xl sm:text-2xl font-bold text-slate-800">评价详情</h1>
             </div>
 
-            <div className="flex items-center gap-2 text-slate-500 mb-6">
-              <Calendar className="w-5 h-5" />
-              <span className="text-lg">{formatDate(datePart)}</span>
+            <div className="flex items-center gap-1.5 sm:gap-2 text-slate-500 mb-5 sm:mb-6">
+              <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="text-base sm:text-lg">{formatDate(datePart)}</span>
             </div>
 
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
-              <p className="text-xl text-slate-700 leading-relaxed">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 sm:p-6 border border-blue-200">
+              <p className="text-base sm:text-xl text-slate-700 leading-relaxed">
                 {commentPart}
               </p>
             </div>
